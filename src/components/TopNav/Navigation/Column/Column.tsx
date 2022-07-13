@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useRef, useState } from 'react';
+import Portal from '../../../Common/Portal/Portal';
 import ColumnItem from '../ColumnItem/ColumnItem';
 import "./Column.scss"
 
@@ -13,6 +14,8 @@ function Column(props: ColumnProps) {
     
     const item = ColumnItem({text:'test'});
 
+    const portal = Portal(item);
+
     let [shouldDisplay, setDisplay] = useState(false);
 
     function showEvent(event : React.MouseEvent){
@@ -25,7 +28,7 @@ function Column(props: ColumnProps) {
                 {props.text}
             </span>
 
-            {shouldDisplay && item}
+            {shouldDisplay && portal}
         </div>
     );
 }

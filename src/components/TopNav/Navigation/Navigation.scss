@@ -5,7 +5,7 @@
     display: flex;
     justify-content: left;
     align-items: flex-end;
-    font-size: calc($searchbar-height / ($num-nav-columns - 1));
+    font-size: calc($navbar-height / ($num-nav-columns - 1));
 }
 
 .column{

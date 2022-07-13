@@ -11,18 +11,18 @@ a{
 }
 
 .sitename-icon, .sitename-text{
-    height: $searchbar-height;
+    height: $navbar-height;
 }
 
 .sitename-icon{
     background-color: darken(red, $amount: 10);
-    flex: 0 0 $searchbar-height;
-    padding: $searchbar-padding;
+    flex: 0 0 $navbar-height;
+    padding: $navbar-padding;
 }
 
 .sitename-text{ 
     flex: 1;
-    font-size: calc($searchbar-height - $searchbar-padding);
+    font-size: calc($navbar-height - $navbar-padding);
     background-color: darken(red, $amount: 15);
 
     user-select: none;

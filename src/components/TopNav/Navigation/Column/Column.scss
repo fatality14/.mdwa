@@ -2,6 +2,6 @@
 @import "../../variables.scss";
 
 .column {
-    line-height: $searchbar-height - $searchbar-padding;
+    line-height: $navbar-height - $navbar-padding;
     user-select: none;
 }
