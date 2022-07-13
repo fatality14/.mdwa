@@ -1,0 +1,9 @@
+$page-width: 100%;
+
+$searchbar-height: 50px;
+$sitename-width: 200px;
+$searchbar-width: 100px;
+$menu-width: 100px;
+$navigation-width: calc($page-width - $sitename-width - $searchbar-width - $menu-width);
+
+$background-color: aqua;

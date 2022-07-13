@@ -1,0 +1,20 @@
+@import "../../global.scss";
+
+main {
+    height: 100vh;
+    width: $page-width;
+    background-color: darken($background-color, 10);
+    display: flex;
+}
+
+main .content{
+    flex-grow: 1;
+    background-color: darken($background-color, 15);
+    height: 100%;
+}
+
+main nav.left {
+    width: $sitename-width;
+    height: 100%;
+    background-color: $background-color;
+}

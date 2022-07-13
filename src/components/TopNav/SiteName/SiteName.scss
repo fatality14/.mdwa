@@ -1,0 +1,29 @@
+@import "../../global.scss";
+@import "../variables.scss";
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.sitename{
+    display: flex;
+}
+
+.sitename-icon, .sitename-text{
+    height: $searchbar-height;
+}
+
+.sitename-icon{
+    background-color: darken(red, $amount: 10);
+    flex: 0 0 $searchbar-height;
+    padding: $searchbar-padding;
+}
+
+.sitename-text{ 
+    flex: 1;
+    font-size: calc($searchbar-height - $searchbar-padding);
+    background-color: darken(red, $amount: 15);
+
+    user-select: none;
+}

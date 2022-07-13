@@ -1,0 +1,41 @@
+@import "../global.scss";
+@import "./variables.scss";
+
+nav {
+    &.top {
+        display: flex;
+        align-items: center;
+        width: $page-width;
+        height: $searchbar-height;
+    }
+
+    &>* {
+        height: 100%;
+        background-color: $background-color;
+    }
+
+    .sitename {
+        flex: 0 0 $sitename-width;
+        background-color: darken($color: $background-color, $amount: 10);
+    }
+
+    .navigation {
+        flex-grow: 1;
+        background-color: darken($color: $background-color, $amount: 20);
+    }
+
+    .searchbar {
+        flex: 0 0 $searchbar-width;
+        background-color: darken($color: $background-color, $amount: 30);
+        transition: 0.2s all;
+    }
+
+    .searchbar:focus {
+        flex-basis: calc($searchbar-width * 3);
+    }
+
+    .menu {
+        flex: 0 0 $menu-width;
+        background-color: darken($color: $background-color, $amount: 40);
+    }
+}
