@@ -9,5 +9,6 @@
 }
 
 .column{
-    margin-right: 10px;
+    flex: 0 $nav-item-width;
+    padding-right: 10px;
 }

@@ -2,7 +2,7 @@
 
 main {
     height: 100vh;
-    width: $page-width;
+    width: 100%;
     background-color: darken($background-color, 10);
     display: flex;
 }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRef } from 'react';
 import "./ColumnItem.scss"
 
 interface ColumnItemProps {
@@ -10,9 +11,9 @@ interface ColumnItemProps {
 function ColumnItem(props: ColumnItemProps) {
     return (
         <div className={props.styleName ? props.styleName : "" + " column-item"}>
-            <span>
+            <a href={props.link}>
                 {props.text}
-            </span>
+            </a>
         </div>
     );
 }

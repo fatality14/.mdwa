@@ -1,10 +1,14 @@
 import { ReactNode } from "react";
 import { createPortal } from "react-dom";
 
-function Portal(children : ReactNode) {
+interface PortalProps{
+    children : ReactNode
+}
+
+function Portal(props : PortalProps) {
     const root = document.getElementById("moadal-root");
     return (  
-        createPortal(children, root!)
+        createPortal(props.children, root!)
     );
 }
 
