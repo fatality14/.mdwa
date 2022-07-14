@@ -1,6 +1,6 @@
 $navbar-height: 50px;
 $sitename-width: 200px;
-$searchbar-width: 100px;
+$searchbar-width: $navbar-height;
 $menu-width: 100px;
 $navigation-width: calc(100vw - $sitename-width - $searchbar-width - $menu-width);
 

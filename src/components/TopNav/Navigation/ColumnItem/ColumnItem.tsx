@@ -10,7 +10,7 @@ interface ColumnItemProps {
 
 function ColumnItem(props: ColumnItemProps) {
     return (
-        <div className={props.styleName ? props.styleName : "" + " column-item"}>
+        <div key={props.text+props.link} className={props.styleName ? props.styleName : "" + " column-item"}>
             <a href={props.link}>
                 {props.text}
             </a>

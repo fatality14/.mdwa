@@ -2,10 +2,11 @@
 @import "../../variables.scss";
 
 .column {
-    line-height: $navbar-height - $navbar-padding;
+    text-align: center;
+    line-height: $navbar-height;
     user-select: none;
+    background-color: greenyellow;
 }
 
-.column-item{
-    
-}
+// .column-item{
+// }

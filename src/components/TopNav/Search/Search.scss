@@ -1,0 +1,9 @@
+@import "../../global.scss";
+@import "../variables.scss";
+
+.searchbar-icon{
+    width: $navbar-height;
+    height: $navbar-height;
+    float: right;
+    padding: $navbar-padding;
+}

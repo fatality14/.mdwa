@@ -1,6 +1,8 @@
 @import "../global.scss";
 @import "./variables.scss";
 
+$search-toogle-transition-time: 0.4s;
+
 nav {
     &.top {
         display: flex;
@@ -20,18 +22,30 @@ nav {
     }
 
     .navigation {
+        transition: $search-toogle-transition-time all;
         flex-grow: 1;
         background-color: darken($color: $background-color, $amount: 20);
+    }
+
+    .navigation-hidden{
+        @extend .navigation;
+        width: 0;
+        flex: 0 0 0;
+    }
+    .navigation-hidden *{
+        display: none;   
     }
 
     .searchbar {
         flex: 0 0 $searchbar-width;
         background-color: darken($color: $background-color, $amount: 30);
-        transition: 0.2s all;
+        transition: $search-toogle-transition-time all;
     }
 
-    .searchbar:focus {
-        flex-basis: calc($searchbar-width * 3);
+    .searchbar-expanded{
+        @extend .searchbar;
+        flex: 1 1;
+        margin-left: auto;
     }
 
     .menu {

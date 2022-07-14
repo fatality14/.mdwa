@@ -4,7 +4,7 @@ import Column from './Column/Column';
 import "./Navigation.scss"
 
 interface NavigationProps {
-    styleName?: string    
+    styleName?: string
 }
 
 function Navigation(props : NavigationProps) {
@@ -15,10 +15,10 @@ function Navigation(props : NavigationProps) {
     return (
 
         <div className={props.styleName + " navigation"}>
-            <Column styleName='column' text='First col ▽' elements={firstCol}></Column>
-            <Column text='Second col ▽' elements={firstCol}></Column>
-            <Column text='Third col ▽' elements={firstCol}></Column>
-            <Column text='Fourth col ▽' elements={firstCol}></Column>
+            <Column styleName='column' text='First col ⌄' elements={firstCol}></Column>
+            <Column text='Second col ⌄' elements={firstCol}></Column>
+            <Column text='Third col ⌄' elements={firstCol}></Column>
+            <Column text='Fourth col ⌄' elements={firstCol}></Column>
         </div>
     );
 }

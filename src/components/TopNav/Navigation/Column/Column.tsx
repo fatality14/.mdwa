@@ -25,7 +25,6 @@ function Column(props: ColumnProps) {
         });
 
         setItems(items);
-        console.log(items);
     }, [])
 
     const topref = useRef<HTMLDivElement>(null);
@@ -40,7 +39,9 @@ function Column(props: ColumnProps) {
     window.addEventListener('resize', hideEvent)
 
     return (
-        <div ref={topref} className={props.styleName ? props.styleName : "" + " column"} onMouseEnter={showEvent} onMouseLeave={hideEvent}>
+        <div ref={topref} 
+        className={props.styleName ? props.styleName : "" + " column"} 
+        onMouseEnter={showEvent} onMouseLeave={hideEvent}>
             <span>
                 {props.text}
             </span>
