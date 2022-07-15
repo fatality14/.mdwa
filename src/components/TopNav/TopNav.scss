@@ -1,5 +1,4 @@
 @import "../global.scss";
-@import "./variables.scss";
 
 $search-toogle-transition-time: 0.4s;
 
@@ -34,6 +33,10 @@ nav {
     }
     .navigation-hidden *{
         display: none;   
+    }
+
+    .searchbar > *{
+        transition: $search-toogle-transition-time all;
     }
 
     .searchbar {

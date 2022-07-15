@@ -1,5 +1,4 @@
 @import "../../global.scss";
-@import "../variables.scss";
 
 .navigation{
     display: flex;
@@ -8,6 +7,19 @@
     font-size: calc($navbar-height / ($num-nav-columns - 1));
 }
 
-.column{
+.navigation-column{
     flex: 0 $nav-item-width;
+    text-align: center;
+    line-height: $navbar-height;
+    user-select: none;
+    background-color: greenyellow;
+}
+
+.navigation-column-item{
+    width: calc($nav-item-width - $navbar-padding/3);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    user-select: none;
+    background-color: darken(greenyellow, $amount: 10);
 }

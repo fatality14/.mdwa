@@ -1,7 +1,11 @@
 $navbar-height: 50px;
 $sitename-width: 200px;
 $searchbar-width: $navbar-height;
-$menu-width: 100px;
+$menu-width: $navbar-height;
 $navigation-width: calc(100vw - $sitename-width - $searchbar-width - $menu-width);
+
+$navbar-padding: 10px;
+$num-nav-columns: 4;
+$nav-item-width: calc($navigation-width / 4);
 
 $background-color: aqua;

@@ -6,6 +6,10 @@ interface PopoverProps {
     coords: { x: number, y: number }
 }
 
+export interface CoordsXY {
+    x: number, y: number
+}
+
 function Popover(props: PopoverProps) {
     return (
         <Portal>

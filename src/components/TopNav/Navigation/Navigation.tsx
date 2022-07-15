@@ -1,6 +1,6 @@
 import { stringify } from 'querystring';
 import * as React from 'react';
-import Column from './Column/Column';
+import PopoverColumn from '../../Common/Popover/PopoverColumn/PopoverColumn';
 import "./Navigation.scss"
 
 interface NavigationProps {
@@ -12,13 +12,14 @@ function Navigation(props : NavigationProps) {
     firstCol.set("one","val1");
     firstCol.set("two","val2");
 
-    return (
+    const shiftY = 50;
 
+    return (
         <div className={props.styleName + " navigation"}>
-            <Column styleName='column' text='First col ⌄' elements={firstCol}></Column>
-            <Column text='Second col ⌄' elements={firstCol}></Column>
-            <Column text='Third col ⌄' elements={firstCol}></Column>
-            <Column text='Fourth col ⌄' elements={firstCol}></Column>
+            <PopoverColumn shiftX={0} shiftY={shiftY} itemStyleName='navigation-column-item' styleName='navigation-column' text='First col ⌄' elements={firstCol}></PopoverColumn>
+            <PopoverColumn shiftX={0} shiftY={shiftY} itemStyleName='navigation-column-item' styleName='navigation-column' text='Second col ⌄' elements={firstCol}></PopoverColumn>
+            <PopoverColumn shiftX={0} shiftY={shiftY} itemStyleName='navigation-column-item' styleName='navigation-column' text='Third col ⌄' elements={firstCol}></PopoverColumn>
+            <PopoverColumn shiftX={0} shiftY={shiftY} itemStyleName='navigation-column-item' styleName='navigation-column' text='Fourth col ⌄' elements={firstCol}></PopoverColumn>
         </div>
     );
 }

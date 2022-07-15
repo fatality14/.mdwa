@@ -1,5 +1,6 @@
 import React, { CSSProperties, FocusEvent, useEffect, useRef, useState } from 'react';
 import Icon from '../Common/Image/Icon';
+import Menu from './Menu/Menu';
 import Navigation from './Navigation/Navigation';
 import Search from './Search/Search';
 import SiteName from './SiteName/SiteName';
@@ -29,9 +30,7 @@ export default function TopNav() {
                 }}
                 styleName={searchStyleName}
             ></Search>
-            <div className='menu'>
-                menu
-            </div>
+            <Menu></Menu>
         </nav>
     )
 }

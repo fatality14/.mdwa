@@ -18,7 +18,6 @@ function Search(props: SearchProps) {
             props.onFocus!();
         }
         setTextIn(true);
-        inRef.current?.focus();
     }
     let onBlur = ()=>{
         if(props.onBlur){
@@ -39,7 +38,7 @@ function Search(props: SearchProps) {
         className={props.styleName ? props.styleName : "" + " searchbar"}
         >
             <Icon styleName='searchbar-icon' imagePath={'/favicons/search.png'}></Icon>
-            {showTextIn && <input ref={inRef} onBlur={onBlur} type='text'></input>}
+            {showTextIn && <input ref={inRef} className="searchbar-input" onBlur={onBlur} type='text'></input>}
         </div>
     );
 }
