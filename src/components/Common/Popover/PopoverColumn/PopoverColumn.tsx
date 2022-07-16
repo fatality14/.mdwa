@@ -9,10 +9,11 @@ interface PopoverColumnProps {
     text?: string
     elements?: Map<string, string>
     itemStyleName?: string
-    noMouseEvents?: boolean
+    noAutoHidable?: boolean
     shiftX: number
     shiftY: number
     rtlRender?: boolean
+    noClickBubbling?: boolean
 }
 
 function PopoverColumn(props: PopoverColumnProps) {
@@ -51,7 +52,7 @@ function PopoverColumn(props: PopoverColumnProps) {
     let [mouseEventProps, setMouseEventProps] = useState<any>();
 
     useEffect(() => {
-        if (props.noMouseEvents) {
+        if (props.noAutoHidable) {
             setMouseEventProps({});
             setDisplay(true);
             const coords = topref.current!.getBoundingClientRect();
@@ -80,7 +81,7 @@ function PopoverColumn(props: PopoverColumnProps) {
 
             {
                 display &&
-                <Popover coords={coordsXY!}>{items}</Popover>
+                <Popover noClickBubbling={props.noClickBubbling} outsideClick={()=>{setDisplay(false)}} coords={coordsXY!}>{items}</Popover>
             }
         </div>
     );

@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import LeftNav from '../Common/LeftNav/LeftNav';
 import "./MainPageContent.scss"
 
 function MainPageContent() {
     return (
         <main>
-            <nav className='left'>
-                nav left
-            </nav>
+            <LeftNav styleName='left'></LeftNav>
             <div className='content'>
                 div main
             </div>
