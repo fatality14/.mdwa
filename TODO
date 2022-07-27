@@ -1,0 +1,38 @@
+1
+create useHidable hook
+that takes component
+that returns component and toggle option
+
+create useTopref hook to easily get component ref
+also add prop interface for topref
+
+2
+styleName should implicitly be set in component
+leave possibility to set own styleName instead of
+styleName should be extendable using interface
+create styleName parse function to easily set className
+
+consider renaming styleName to className
+
+3
+parent component style should be only set for nesting css properties wherever it is possible
+be careful with common components own style
+
+4
+add prop interfaces for frequently used events with prevent default property
+
+5
+add prop interface for default component behavior disabling
+
+6
+allow FoldList and PopoverColumn items to be set as children
+
+7
+add outsideClick prop interface used for portal-based components
+add coords manipulation props interface for portal-based components
+
+8
+remove PopoverColumnItem and FoldListItem
+
+9
+use ReactNode wherever it could be used

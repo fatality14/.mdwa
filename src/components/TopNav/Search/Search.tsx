@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
+import HiddenHOC from '../../Common/HiddneHOC/HiddenHOC';
+import useHiddeable from '../../Common/HiddneHOC/useHidden';
 import Icon from '../../Common/Image/Icon';
 import "./Search.scss"
 
@@ -10,27 +12,33 @@ interface SearchProps {
 }
 
 function Search(props: SearchProps) {
-    const [showTextIn, setTextIn] = useState(false);
     const inRef = useRef<HTMLInputElement>(null);
+    const [isHidden, setHidden] = useState(true);
 
+    //TODO: fix: activates two times cause of bubbling while input focus
     let onFocus = ()=>{
+        toggleHidden(false);
         if(props.onFocus){
             props.onFocus!();
         }
-        setTextIn(true);
     }
     let onBlur = ()=>{
+        toggleHidden(true);
         if(props.onBlur){
             props.onBlur!();
         }
-        setTextIn(false);
     }
 
+    const textIn = <input ref={inRef} className="searchbar-input" onBlur={onBlur} type='text'></input>;
+
+
     useEffect(()=>{
-        if(showTextIn){
+        if(textIn != null){
             inRef.current?.focus();
         }
-    },[showTextIn]);
+    },[textIn]);
+
+    const [hidableComp, toggleHidden] = useHiddeable(textIn, true);
 
     return (
         <div 
@@ -38,7 +46,10 @@ function Search(props: SearchProps) {
         className={props.styleName ? props.styleName : "" + " searchbar"}
         >
             <Icon styleName='searchbar-icon' imagePath={'/favicons/search.png'}></Icon>
-            {showTextIn && <input ref={inRef} className="searchbar-input" onBlur={onBlur} type='text'></input>}
+            {/* <HiddenHOC isHidden = {!isHidden}>
+                {textIn}
+            </HiddenHOC> */}
+            {hidableComp}
         </div>
     );
 }

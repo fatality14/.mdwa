@@ -7,10 +7,6 @@ import SiteName from './SiteName/SiteName';
 import "./TopNav.scss";
 
 export default function TopNav() {
-    interface InlineStyle {
-        inlineStyle: CSSProperties
-    }
-
     const [navStyleName, setNavStyleName] = useState('navigation');
     const [searchFocused, setSearchFocued] = useState(false);
     const [searchStyleName, setSearchStyleName] = useState('searchbar');

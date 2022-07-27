@@ -8,17 +8,19 @@ interface MenuProps {
     styleName?: string
 }
 
-function Menu(props: MenuProps) {
-    const [displayPanel, setDisplayPanel] = React.useState(false);
-
+function Menu(props: MenuProps) {    
     let items = new Map<string, string>();
     items.set("one", "hi");
     items.set("two", "hi2");
 
+    const [isHidden, setHidden] = React.useState(false);
+
+    const popover = <PopoverColumn noClickBubbling shiftX={-100} shiftY={0} rtlRender itemStyleName='menu-column-item' styleName='menu-column' noAutoHidable elements={items}></PopoverColumn>;
+
     return (
-        <div tabIndex={0} onClick={() => { setDisplayPanel(!displayPanel) }} className={props.styleName ? props.styleName + " menu" : "menu"}>
+        <div tabIndex={0} onClick={() => { setHidden(!isHidden) }} className={props.styleName ? props.styleName + " menu" : "menu"}>
             <Icon styleName='menu-icon' imagePath='/favicons/site.png'></Icon>
-            {displayPanel && <PopoverColumn noClickBubbling shiftX={-100} shiftY={0} rtlRender itemStyleName='menu-column-item' styleName='menu-column' noAutoHidable elements={items}></PopoverColumn>}
+            {isHidden && popover}
         </div>
     );
 }

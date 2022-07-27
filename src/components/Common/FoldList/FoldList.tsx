@@ -23,7 +23,6 @@ function FoldList(props: FoldListProps) {
             items.push(item);
         });
 
-        console.log(items);
         setItems(items);
     },[])
 
