@@ -6,7 +6,7 @@ function useHiddeable(comp: React.ReactNode, hidden?: boolean) : [React.ReactNod
     const [isHidden, setHidden] = useState(hidden ?? false);
 
     //HOC is necessary to bind component props for comp, else react will forget its references after hiding
-    const hidableComp = <HiddenHOC isHidden = {!isHidden}>{comp}</HiddenHOC>
+    const hidableComp = <HiddenHOC isVisible = {!isHidden}>{comp}</HiddenHOC>
 
     function toggleHidden(state?: boolean) {
         setHidden(state ?? isHidden);

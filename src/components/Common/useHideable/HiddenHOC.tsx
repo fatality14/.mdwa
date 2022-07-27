@@ -1,13 +1,13 @@
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
 
 interface HiddenHOCProps{
-    isHidden? : boolean
+    isVisible? : boolean
     children : ReactNode
 }
 
 function HiddenHOC(props : HiddenHOCProps) {
     return (
-        <>{props.isHidden && props.children}</>
+        <>{props.isVisible && props.children}</>
     );
 }
 

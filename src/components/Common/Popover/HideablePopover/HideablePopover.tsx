@@ -1,45 +1,40 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import useHideable from '../../HiddneHOC/useHidden';
+import useHideable from '../../useHideable/useHidden';
 import Popover, { CoordsXY } from '../Popover';
-import PopoverColumnItem from '../PopoverColumnItem/PopoverColumnItem';
-import "./PopoverColumn.scss"
+import "./HideablePopover.scss"
 
-interface PopoverColumnProps {
+interface HideablePopoverProps {
     styleName?: string
+    children?: React.ReactNode | React.ReactNode[]
     text?: string
-    elements?: Map<string, string>
-    itemStyleName?: string
     noAutoHidable?: boolean
     shiftX: number
     shiftY: number
     rtlRender?: boolean
-    noClickBubbling?: boolean
+    hidden?: boolean
+    id?: string
 }
 
-function PopoverColumn(props: PopoverColumnProps) {
+function HideablePopover(props: HideablePopoverProps) {
     const [coordsXY, setCoordsXY] = useState<CoordsXY>();
-
-    let items: React.ReactElement[] = [];
-    props.elements?.forEach((v: string, k: string) => {
-        let item = PopoverColumnItem({ link: v, text: k, styleName: (props.itemStyleName ? props.itemStyleName + ' popover-column-item' : 'popover-column-item') });
-        items.push(item);
-    });
 
     const topref = useRef<HTMLDivElement>(null);
     function showEvent(event: React.MouseEvent) {
         const coords = topref.current!.getBoundingClientRect();
-        if(props.rtlRender){
+        if (props.rtlRender) {
             setCoordsXY({ x: coords.right + props.shiftX, y: coords.top + props.shiftY });
         }
-        else{
+        else {
             setCoordsXY({ x: coords.left + props.shiftX, y: coords.top + props.shiftY });
         }
         toggleHidden(false);
-        
+
     }
-    function hideEvent() {        
-        toggleHidden(true);
+    function hideEvent() {
+        if(!props.noAutoHidable){
+            toggleHidden(true);
+        }
     };
 
     window.addEventListener('resize', hideEvent)
@@ -49,17 +44,16 @@ function PopoverColumn(props: PopoverColumnProps) {
     useEffect(() => {
         if (props.noAutoHidable) {
             setMouseEventProps({});
-            toggleHidden(false);
-            
+
             const coords = topref.current!.getBoundingClientRect();
-            if(props.rtlRender){
+            if (props.rtlRender) {
                 setCoordsXY({ x: coords.right + props.shiftX, y: coords.top + props.shiftY });
             }
-            else{
+            else {
                 setCoordsXY({ x: coords.left + props.shiftX, y: coords.top + props.shiftY });
             }
         }
-        else {   
+        else {
             setMouseEventProps({
                 onMouseEnter: showEvent,
                 onMouseLeave: hideEvent
@@ -67,8 +61,11 @@ function PopoverColumn(props: PopoverColumnProps) {
         }
     }, [])
 
-    const [popover, toggleHidden] = useHideable(<Popover noClickBubbling={props.noClickBubbling} outsideClick={()=>{toggleHidden(true)}} coords={coordsXY}>{items}</Popover>, true);
-    // const popover = <Popover noClickBubbling={props.noClickBubbling} outsideClick={()=>{setHidden(true)}} coords={coordsXY}>{items}</Popover>;
+    useEffect(() => {
+        toggleHidden(props.hidden);
+    }, [props.hidden])
+    
+    const [popover, toggleHidden] = useHideable(<Popover id={props.id} coords={coordsXY}>{props.children}</Popover>, props.hidden ?? false);
 
     return (
         <div ref={topref}
@@ -78,9 +75,8 @@ function PopoverColumn(props: PopoverColumnProps) {
                 {props.text}
             </span>
             {popover}
-            {/* {!isHidden && popover} */}
         </div>
     );
 }
 
-export default PopoverColumn;
+export default HideablePopover;

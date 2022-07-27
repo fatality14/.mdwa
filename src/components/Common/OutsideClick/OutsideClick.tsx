@@ -1,7 +1,7 @@
-import { ReactElement, useEffect, useRef } from "react";
+import { ReactElement, ReactNode, useEffect, useRef } from "react";
 
 interface OutsideClickProps {
-    children?: ReactElement | ReactElement[] | boolean
+    children: ReactNode
     onOutsideClick: (e : MouseEvent)=>void
 }
 
@@ -9,9 +9,10 @@ export default function OutsideClick(props: OutsideClickProps) {
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     const handleClickOutside = (event : MouseEvent) => {
+        console.log()
         if (
             wrapperRef.current &&
-            !wrapperRef.current.contains(event.target as Node)
+            (!wrapperRef.current.contains(event.target as Node))
         ) {
             props.onOutsideClick(event);
         }

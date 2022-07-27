@@ -6,8 +6,7 @@ import "./Popover.scss"
 interface PopoverProps {
     children: React.ReactNode,
     coords?: { x: number, y: number }
-    outsideClick: (e: MouseEvent) => void
-    noClickBubbling?: boolean
+    id?: string
 }
 
 export interface CoordsXY {
@@ -15,10 +14,6 @@ export interface CoordsXY {
 }
 
 function Popover(props: PopoverProps) {
-    function stopClickProp(e: React.MouseEvent<HTMLDivElement>) {
-        e.stopPropagation();
-    }
-
     let style: any = {'left': 0 + 'px', 'top': 0 + 'px'};
     if(props.coords){
         style =  { 'left': props.coords.x + 'px', 'top': props.coords.y + 'px' }
@@ -26,11 +21,9 @@ function Popover(props: PopoverProps) {
 
     return (
         <Portal>
-            <OutsideClick onOutsideClick={props.outsideClick}>
-                <div onClick={props.noClickBubbling ? stopClickProp : ()=>{}} className="popover" style={style}>
+                <div id = {props.id} className="popover" style={style}>
                     {props.children}
                 </div>
-            </OutsideClick>
         </Portal>
     );
 }

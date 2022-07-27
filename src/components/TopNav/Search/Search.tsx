@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import HiddenHOC from '../../Common/HiddneHOC/HiddenHOC';
-import useHiddeable from '../../Common/HiddneHOC/useHidden';
+import HiddenHOC from '../../Common/useHideable/HiddenHOC';
+import useHiddeable from '../../Common/useHideable/useHidden';
 import Icon from '../../Common/Image/Icon';
 import "./Search.scss"
 
