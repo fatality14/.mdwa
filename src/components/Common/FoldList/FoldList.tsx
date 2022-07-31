@@ -5,31 +5,18 @@ import "./FoldList.scss"
 
 interface FoldListProps {
     styleName?: string
-    itemStyleName?: string
+    labelStyleName?: string
     text: string
-    elements: Map<string, string>
+    children: React.ReactElement | React.ReactElement[]
 }
 
 function FoldList(props: FoldListProps) {
-    let [items, setItems] = useState<React.ReactElement[]>();
     let [expand, setExpand] = useState(true);
-
-
-    React.useEffect(()=>{
-        let items : React.ReactElement[] = [];
-
-        props.elements?.forEach((v: string, k: string) => {
-            let item = FoldListItem({noClickBubbling: true, link: v, text: k, styleName: (props.itemStyleName ? props.itemStyleName + ' fold-list-item' : 'fold-list-item') });
-            items.push(item);
-        });
-
-        setItems(items);
-    },[])
 
     return (
         <div onClick={()=>setExpand(!expand)} className={props.styleName ? props.styleName + " fold-list" : "fold-list"}>
-            <div className={props.itemStyleName ? props.itemStyleName + ' fold-list-item' : 'fold-list-item'}>{props.text}</div>
-            {expand && items}
+            <div className={props.labelStyleName ? props.labelStyleName + ' fold-list-item' : 'fold-list-item'}>{props.text}</div>
+            {expand && props.children}
         </div>
     );
 }
