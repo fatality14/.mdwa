@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import OutsideClick from "../OutsideClick/OutsideClick";
 import Portal from "../Portal/Portal";
 import "./Popover.scss"
 
 interface PopoverProps {
-    children: React.ReactNode,
+    children: React.ReactNode | ReactNode[]
     coords?: { x: number, y: number }
     id?: string
 }

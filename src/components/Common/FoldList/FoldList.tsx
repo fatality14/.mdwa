@@ -2,20 +2,21 @@ import * as React from 'react';
 import { useRef, useState } from 'react';
 import FoldListItem from './FoldListItem/FoldListItem';
 import "./FoldList.scss"
+import { formClassName } from '../../../utility/StyleUtils';
 
 interface FoldListProps {
-    styleName?: string
-    labelStyleName?: string
+    className?: string
+    labelClassName?: string
     text: string
-    children: React.ReactElement | React.ReactElement[]
+    children: React.ReactNode | React.ReactNode[]
 }
 
 function FoldList(props: FoldListProps) {
     let [expand, setExpand] = useState(true);
 
     return (
-        <div onClick={()=>setExpand(!expand)} className={props.styleName ? props.styleName + " fold-list" : "fold-list"}>
-            <div className={props.labelStyleName ? props.labelStyleName + ' fold-list-item' : 'fold-list-item'}>{props.text}</div>
+        <div onClick={()=>setExpand(!expand)} className={formClassName('fold-list', props.className)}>
+            <div className={formClassName('fold-list-item', props.labelClassName)}>{props.text}</div>
             {expand && props.children}
         </div>
     );

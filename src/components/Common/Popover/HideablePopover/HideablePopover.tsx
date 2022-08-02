@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import useHideable from '../../useHideable/useHidden';
+import { formClassName } from '../../../../utility/StyleUtils';
+import useHideable from '../../useHideable/useHiddeable';
+import useWrapref from '../../useWrapref/useWrapref';
 import Popover, { CoordsXY } from '../Popover';
 import "./HideablePopover.scss"
 
 interface HideablePopoverProps {
-    styleName?: string
+    className?: string
     children?: React.ReactNode | React.ReactNode[]
     text?: string
     noAutoHidable?: boolean
@@ -19,9 +21,8 @@ interface HideablePopoverProps {
 function HideablePopover(props: HideablePopoverProps) {
     const [coordsXY, setCoordsXY] = useState<CoordsXY>();
 
-    const topref = useRef<HTMLDivElement>(null);
     function showEvent(event: React.MouseEvent) {
-        const coords = topref.current!.getBoundingClientRect();
+        const coords = wrapref.current!.getBoundingClientRect();
         if (props.rtlRender) {
             setCoordsXY({ x: coords.right + props.shiftX, y: coords.top + props.shiftY });
         }
@@ -32,7 +33,7 @@ function HideablePopover(props: HideablePopoverProps) {
 
     }
     function hideEvent() {
-        if(!props.noAutoHidable){
+        if (!props.noAutoHidable) {
             toggleHidden(true);
         }
     };
@@ -45,7 +46,7 @@ function HideablePopover(props: HideablePopoverProps) {
         if (props.noAutoHidable) {
             setMouseEventProps({});
 
-            const coords = topref.current!.getBoundingClientRect();
+            const coords = wrapref.current!.getBoundingClientRect();
             if (props.rtlRender) {
                 setCoordsXY({ x: coords.right + props.shiftX, y: coords.top + props.shiftY });
             }
@@ -64,18 +65,19 @@ function HideablePopover(props: HideablePopoverProps) {
     useEffect(() => {
         toggleHidden(props.hidden);
     }, [props.hidden])
-    
+
     const [popover, toggleHidden] = useHideable(<Popover id={props.id} coords={coordsXY}>{props.children}</Popover>, props.hidden ?? false);
 
-    return (
-        <div ref={topref}
-            className={props.styleName ? props.styleName + " popover-column" : "popover-column"} {...mouseEventProps}
-        >
-            <span>
-                {props.text}
-            </span>
+
+    const [rendComp, wrapref] = useWrapref(
+        <>
+            <span> {props.text} </span> 
             {popover}
-        </div>
+        </>,
+        { className: formClassName('popover-column', props.className), ...mouseEventProps })
+
+    return (
+        <>{rendComp}</>
     );
 }
 

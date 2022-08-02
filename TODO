@@ -4,7 +4,7 @@ that takes component
 that returns component and toggle option
 
 create useTopref hook to easily get component ref
-also add prop interface for topref
+dont forget to use forwardRef instead of specifying it in props
 
 2
 styleName should implicitly be set in component
@@ -39,5 +39,6 @@ use ReactNode wherever it could be used
 
 10
 onresize element default position is not changing in menu
+
 click to menu, then close menu, then resize and open menu
 the element would be situated on the last shown position

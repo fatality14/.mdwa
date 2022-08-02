@@ -6,7 +6,7 @@ import "./MainPageContent.scss"
 function MainPageContent() {
     return (
         <main>
-            <LeftNav styleName='left'></LeftNav>
+            <LeftNav className='left'></LeftNav>
             <div className='content'>
                 div main
             </div>

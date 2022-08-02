@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { useRef } from 'react';
+import { formClassName } from '../../../../utility/StyleUtils';
 import "./NavItem.scss"
 
 interface NavItemProps {
-    styleName?: string
+    className?: string
     text: string
     link?: string
 }
 
 function NavItem(props: NavItemProps) {
     return (
-        <div key={props.text+props.link} className={props.styleName ? props.styleName + " nav-item" : "nav-item"}>
+        <div key={props.text+props.link} className={formClassName('nav-item', props.className)}>
             <a href={props.link}>
                 {props.text}
             </a>

@@ -7,24 +7,23 @@ import SiteName from './SiteName/SiteName';
 import "./TopNav.scss";
 
 export default function TopNav() {
-    const [navStyleName, setNavStyleName] = useState('navigation');
-    const [searchFocused, setSearchFocued] = useState(false);
-    const [searchStyleName, setSearchStyleName] = useState('searchbar');
+    const [navClassName, setNavClassName] = useState('navigation');
+    const [searchClassName, setSearchClassName] = useState('searchbar');
 
     return (
         <nav className='top'>
-            <SiteName href='#' styleName='sitename' text='.mdwa'></SiteName>
-            <Navigation styleName={navStyleName}></Navigation>
+            <SiteName href='#' className='sitename' text='.mdwa'></SiteName>
+            <Navigation className={navClassName}></Navigation>
             <Search
                 onFocus={() => {
-                    setSearchStyleName('searchbar-expanded')
-                    setNavStyleName('navigation-hidden')
+                    setSearchClassName('searchbar-expanded')
+                    setNavClassName('navigation-hidden')
                 }}
                 onBlur={() => {
-                    setSearchStyleName('searchbar')
-                    setNavStyleName('navigation')
+                    setSearchClassName('searchbar')
+                    setNavClassName('navigation')
                 }}
-                styleName={searchStyleName}
+                className={searchClassName}
             ></Search>
             <Menu></Menu>
         </nav>

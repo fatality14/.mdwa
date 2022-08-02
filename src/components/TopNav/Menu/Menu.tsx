@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { formClassName } from '../../../utility/StyleUtils';
 import Icon from '../../Common/Image/Icon';
 import OutsideClick from '../../Common/OutsideClick/OutsideClick';
 import HideablePopover from '../../Common/Popover/HideablePopover/HideablePopover';
@@ -6,7 +7,7 @@ import "./Menu.scss"
 import MenuItem from './MenuItem/MenuItem';
 
 interface MenuProps {
-    styleName?: string
+    className?: string
 }
 
 function Menu(props: MenuProps) {
@@ -35,13 +36,13 @@ function Menu(props: MenuProps) {
     }
 
     return (
-        <div className={props.styleName ? props.styleName + " menu" : "menu"}>
+        <div className={formClassName('menu', props.className)}>
             <OutsideClick onOutsideClick={outsideClickHandler}>
-                <Icon onClick={foldHandler} styleName='menu-icon' imagePath='/favicons/site.png'></Icon>
-                <HideablePopover id={popoverId} hidden={isHidden} shiftX={-100} shiftY={0} rtlRender styleName='menu-column' noAutoHidable>
-                    <MenuItem text='123' styleName='menu-column-item'></MenuItem>
-                    <MenuItem text='123' styleName='menu-column-item'></MenuItem>
-                    <MenuItem text='123' styleName='menu-column-item'></MenuItem>
+                <Icon onClick={foldHandler} className='menu-icon' imagePath='/favicons/site.png'></Icon>
+                <HideablePopover id={popoverId} hidden={isHidden} shiftX={-100} shiftY={0} rtlRender className='menu-column' noAutoHidable>
+                    <MenuItem text='123' className='menu-column-item'></MenuItem>
+                    <MenuItem text='123' className='menu-column-item'></MenuItem>
+                    <MenuItem text='123' className='menu-column-item'></MenuItem>
                 </HideablePopover>
             </OutsideClick>
         </div>

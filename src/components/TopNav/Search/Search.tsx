@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import HiddenHOC from '../../Common/useHideable/HiddenHOC';
-import useHiddeable from '../../Common/useHideable/useHidden';
+import useHiddeable from '../../Common/useHideable/useHiddeable';
 import Icon from '../../Common/Image/Icon';
 import "./Search.scss"
+import { formClassName } from '../../../utility/StyleUtils';
 
 interface SearchProps {
-    styleName?: string
+    className?: string
     onFocus?: () => void;
     onBlur?: () => void;
 }
 
 function Search(props: SearchProps) {
     const inRef = useRef<HTMLInputElement>(null);
-    const [isHidden, setHidden] = useState(true);
 
     //TODO: fix: activates two times cause of bubbling while input focus
     let onFocus = ()=>{
@@ -43,9 +43,9 @@ function Search(props: SearchProps) {
     return (
         <div 
         onFocus={onFocus} tabIndex={0} 
-        className={props.styleName ? props.styleName : "" + " searchbar"}
+        className={formClassName('searchbar', props.className)}
         >
-            <Icon styleName='searchbar-icon' imagePath={'/favicons/search.png'}></Icon>
+            <Icon className='searchbar-icon' imagePath={'/favicons/search.png'}></Icon>
             {/* <HiddenHOC isHidden = {!isHidden}>
                 {textIn}
             </HiddenHOC> */}

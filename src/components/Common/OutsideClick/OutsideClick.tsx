@@ -1,15 +1,15 @@
-import { ReactElement, ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
+import useWrapref from "../useWrapref/useWrapref";
 
 interface OutsideClickProps {
-    children: ReactNode
+    children: ReactNode | ReactNode[]
     onOutsideClick: (e : MouseEvent)=>void
 }
 
 export default function OutsideClick(props: OutsideClickProps) {
-    const wrapperRef = useRef<HTMLDivElement>(null);
+    const [rendComp, wrapperRef] = useWrapref(props.children)
 
     const handleClickOutside = (event : MouseEvent) => {
-        console.log()
         if (
             wrapperRef.current &&
             (!wrapperRef.current.contains(event.target as Node))
@@ -28,6 +28,6 @@ export default function OutsideClick(props: OutsideClickProps) {
     }, [])
 
     return(
-        <div ref={wrapperRef}>{props.children}</div>
+        <>{rendComp}</>
     )
 }

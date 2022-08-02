@@ -1,35 +1,36 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import { formClassName } from '../../../../utility/StyleUtils';
 import FoldList from '../../../Common/FoldList/FoldList';
 import FoldListItem from '../../../Common/FoldList/FoldListItem/FoldListItem';
 import "./LeftNav.scss"
 
 interface LeftNavProps {
-    styleName?: string
+    className?: string
 }
 
 function LeftNav(props: LeftNavProps) {
-    const elements = new Map<string, string>();
-    elements.set("one", "to");
-    elements.set("two", "fo");
+    const flClass = 'left-nav-fold-list';
+    const fllClass = 'left-nav-fold-list-item';
+    const fliClass = 'left-nav-fold-list-item';
 
     return (
-        <nav className={props.styleName ? props.styleName + ' left' : 'left'}>
-            <FoldList styleName='left-nav-fold-list' labelStyleName='left-nav-fold-list-item' text={'Header'}>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
+        <nav className={formClassName('left', props.className)}>
+            <FoldList className={flClass} labelClassName={fllClass} text={'Header'}>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
             </FoldList>
-            <FoldList styleName='left-nav-fold-list' labelStyleName='left-nav-fold-list-item' text={'Header'}>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
+            <FoldList className={flClass} labelClassName={fllClass} text={'Header'}>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
             </FoldList>
-            <FoldList styleName='left-nav-fold-list' labelStyleName='left-nav-fold-list-item' text={'Header'}>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
+            <FoldList className={flClass} labelClassName={fllClass} text={'Header'}>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
             </FoldList>
-            <FoldList styleName='left-nav-fold-list' labelStyleName='left-nav-fold-list-item' text={'Header'}>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
-                <FoldListItem styleName='left-nav-fold-list-item' text='1234567890'></FoldListItem>
+            <FoldList className={flClass} labelClassName={fllClass} text={'Header'}>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
             </FoldList>
         </nav>
     );

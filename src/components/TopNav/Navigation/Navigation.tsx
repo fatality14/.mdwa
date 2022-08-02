@@ -1,37 +1,41 @@
 import { stringify } from 'querystring';
 import * as React from 'react';
+import { formClassName } from '../../../utility/StyleUtils';
 import HideablePopover from '../../Common/Popover/HideablePopover/HideablePopover';
 import "./Navigation.scss"
 import NavItem from './NavItem/NavItem';
 
 interface NavigationProps {
-    styleName?: string
+    className?: string
 }
 
 function Navigation(props: NavigationProps) {
     const shiftY = 50;
 
+    const hpClass = 'navigation-column';
+    const niClass = 'navigation-column-item';
+
     return (
-        <div className={props.styleName + " navigation"}>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} styleName='navigation-column' text='First col ⌄'>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
+        <div className={formClassName('navigation', props.className)}>
+            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='First col ⌄'>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
             </HideablePopover>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} styleName='navigation-column' text='Second col ⌄'>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
+            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Second col ⌄'>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
             </HideablePopover>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} styleName='navigation-column' text='Third col ⌄'>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
+            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Third col ⌄'>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
             </HideablePopover>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} styleName='navigation-column' text='Fourth col ⌄'>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
-                <NavItem styleName='navigation-column-item' text='First'></NavItem>
+            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Fourth col ⌄'>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
+                <NavItem className={niClass} text='First'></NavItem>
             </HideablePopover>
         </div>
     );
