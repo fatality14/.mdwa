@@ -9,6 +9,7 @@
 
 .navigation-column{
     flex: 0 $nav-item-width;
+    width: $nav-item-width;
     text-align: center;
     line-height: $navbar-height;
     user-select: none;

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import LeftNav from '../Common/LeftNav/LeftNav';
+import MdLoader from '../Common/MdLoader/MdLoader';
 import "./MainPageContent.scss"
 
 function MainPageContent() {
@@ -8,7 +10,7 @@ function MainPageContent() {
         <main>
             <LeftNav className='left'></LeftNav>
             <div className='content'>
-                div main
+            <MdLoader></MdLoader>
             </div>
         </main>
     );
