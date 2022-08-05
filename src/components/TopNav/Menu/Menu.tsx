@@ -36,13 +36,13 @@ function Menu(props: MenuProps) {
     }
 
     return (
-        <div className={formClassName('menu', props.className)}>
+        <div id='menu' className={formClassName('menu', props.className)}>
             <OutsideClick onOutsideClick={outsideClickHandler}>
-                <Icon onClick={foldHandler} className='menu-icon' imagePath='/favicons/site.png'></Icon>
+                <Icon onClick={foldHandler} className='icon' imagePath='/favicons/site.png'></Icon>
                 <HideablePopover id={popoverId} hidden={isHidden} shiftX={-100} shiftY={0} rtlRender className='menu-column' noAutoHidable>
-                    <MenuItem text='123' className='menu-column-item'></MenuItem>
-                    <MenuItem text='123' className='menu-column-item'></MenuItem>
-                    <MenuItem text='123' className='menu-column-item'></MenuItem>
+                    <MenuItem text='123' className='column-item'></MenuItem>
+                    <MenuItem text='123' className='column-item'></MenuItem>
+                    <MenuItem text='123' className='column-item'></MenuItem>
                 </HideablePopover>
             </OutsideClick>
         </div>

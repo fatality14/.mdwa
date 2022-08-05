@@ -1,20 +1,21 @@
 @import "../../global.scss";
 
-.searchbar-icon{
-    width: $navbar-height;
-    height: $navbar-height;
-    float: right;
-    padding: $navbar-padding;
-}
-
-.searchbar-input{
-    margin: 0;
-    height: 0;
-    width: 0;
-}
-
-.searchbar-input:focus{
-    margin: $navbar-padding;
-    height: calc($navbar-height - $navbar-padding * 2);
-    width: calc($navigation-width - $navbar-padding * 4);
+#searchbar{
+    .icon{
+        width: $navbar-height;
+        height: $navbar-height;
+        float: right;
+        padding: $navbar-padding;
+    }
+    
+    .input{
+        margin: 0;
+        width: 0;
+        height: calc($navbar-height - $navbar-padding * 2);
+    }
+    
+    .input:focus{
+        margin: $navbar-padding;
+        width: calc($searchbar-width - $navbar-padding * 4);
+    }
 }

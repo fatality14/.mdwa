@@ -7,10 +7,10 @@ import "./MainPageContent.scss"
 
 function MainPageContent() {
     return (
-        <main>
+        <main id="main">
             <LeftNav className='left'></LeftNav>
             <div className='content'>
-            <MdLoader></MdLoader>
+                <MdLoader></MdLoader>
             </div>
         </main>
     );

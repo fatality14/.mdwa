@@ -12,27 +12,28 @@ interface NavigationProps {
 function Navigation(props: NavigationProps) {
     const shiftY = 50;
 
-    const hpClass = 'navigation-column';
-    const niClass = 'navigation-column-item';
+    const hpClass = 'column';
+    const niClass = 'column-item';
+    const popId = 'navigation-popover';
 
     return (
-        <div className={formClassName('navigation', props.className)}>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='First col ⌄'>
+        <div id='navigation' className={formClassName('navigation', props.className)}>
+            <HideablePopover id={popId} hidden shiftX={0} shiftY={shiftY} className={hpClass} text='First col ⌄'>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>
             </HideablePopover>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Second col ⌄'>
+            <HideablePopover id={popId} hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Second col ⌄'>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>
             </HideablePopover>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Third col ⌄'>
+            <HideablePopover id={popId} hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Third col ⌄'>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>
             </HideablePopover>
-            <HideablePopover hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Fourth col ⌄'>
+            <HideablePopover id={popId} hidden shiftX={0} shiftY={shiftY} className={hpClass} text='Fourth col ⌄'>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>
                 <NavItem className={niClass} text='First'></NavItem>

@@ -1,26 +1,28 @@
 @import "../../global.scss";
 
-.navigation{
-    display: flex;
-    justify-content: left;
-    align-items: flex-end;
-    font-size: calc($navbar-height / ($num-nav-columns - 1));
+#navigation {
+    & {
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+        font-size: calc($navbar-height / ($num-nav-columns - 1));
+    }
+
+    .column {
+        flex: 0 $nav-item-width;
+        width: calc($nav-item-width);
+        text-align: center;
+        line-height: $navbar-height;
+        user-select: none;
+    }
 }
 
-.navigation-column{
-    flex: 0 $nav-item-width;
-    width: $nav-item-width;
-    text-align: center;
-    line-height: $navbar-height;
-    user-select: none;
-    background-color: greenyellow;
-}
-
-.navigation-column-item{
-    width: calc($nav-item-width);
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    user-select: none;
-    background-color: darken(greenyellow, $amount: 10);
+#navigation-popover {
+    .column-item {
+        width: $nav-item-width;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        user-select: none;
+    }
 }

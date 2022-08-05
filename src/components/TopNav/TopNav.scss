@@ -2,28 +2,27 @@
 
 $search-toogle-transition-time: 0.4s;
 
-nav {
+#top-nav {
+    & >* {
+        height: 100%;
+    }
+
     &.top {
         display: flex;
         align-items: center;
         width: 100%;
         height: $navbar-height;
     }
+}
 
-    &>* {
-        height: 100%;
-        background-color: $background-color;
-    }
-
+#top-nav > {
     .sitename {
         flex: 0 0 $sitename-width;
-        background-color: darken($color: $background-color, $amount: 10);
     }
 
     .navigation {
         transition: $search-toogle-transition-time all;
         flex-grow: 1;
-        background-color: darken($color: $background-color, $amount: 20);
     }
 
     .navigation-hidden{
@@ -36,23 +35,20 @@ nav {
     }
 
     .searchbar > *{
-        transition: $search-toogle-transition-time all;
+        transition: calc($search-toogle-transition-time*1.1) all;
     }
 
     .searchbar {
-        flex: 0 0 $searchbar-width;
-        background-color: darken($color: $background-color, $amount: 30);
+        flex: 0 0 $searchbar-icon-width;
         transition: $search-toogle-transition-time all;
     }
 
     .searchbar-expanded{
-        @extend .searchbar;
         flex: 1 1;
         margin-left: auto;
     }
 
-    .menu {
+    .menu{
         flex: 0 0 $menu-width;
-        background-color: darken($color: $background-color, $amount: 40);
     }
 }

@@ -1,28 +1,28 @@
 @import "../../global.scss";
 
-a{
-    text-decoration: none;
-    color: black;
+#site-name{
+    &{
+        text-decoration: none;
+        color: black;
+    }
+    &.site-name{
+        display: flex;
+    }
+    > .icon, .text{
+        height: $navbar-height;
+    }
+    > .icon{
+        flex: 0 0 $navbar-height;
+        padding: $navbar-padding;
+    }
+    
+    > .text{ 
+        flex: 1;
+        font-size: calc($navbar-height - $navbar-padding);
+    
+        user-select: none;
+    }
 }
 
-.sitename{
-    display: flex;
-}
 
-.sitename-icon, .sitename-text{
-    height: $navbar-height;
-}
 
-.sitename-icon{
-    background-color: darken(red, $amount: 10);
-    flex: 0 0 $navbar-height;
-    padding: $navbar-padding;
-}
-
-.sitename-text{ 
-    flex: 1;
-    font-size: calc($navbar-height - $navbar-padding);
-    background-color: darken(red, $amount: 15);
-
-    user-select: none;
-}

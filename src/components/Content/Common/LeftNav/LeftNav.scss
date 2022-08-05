@@ -4,16 +4,16 @@
 
 // }
 
-.left-nav-fold-list-item{
-    user-select: none;
-    background-color: darken(coral,10);
-    height: 50px;
-}
-
-.left-nav-fold-list{
-    height: 50px;
-    user-select: none;
-    width: 100%;
-    background-color: coral;
-    height: auto;
+#left-nav {
+    .fold-list-item{
+        user-select: none;
+        height: 50px;
+    }
+    
+    .fold-list{
+        height: 50px;
+        user-select: none;
+        width: 100%;
+        height: auto;
+    }
 }

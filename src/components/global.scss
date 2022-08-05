@@ -1,11 +1,12 @@
 $navbar-height: 50px;
 $sitename-width: 200px;
-$searchbar-width: $navbar-height;
+$searchbar-icon-width: $navbar-height;
 $menu-width: $navbar-height;
-$navigation-width: calc(100vw - $sitename-width - $searchbar-width - $menu-width);
+
+//to fix scrollbar with, inclu
+$navigation-width: calc(100vw - $sitename-width - $searchbar-icon-width - $menu-width - var(--scw, 15px));
+$searchbar-width: $navigation-width;
 
 $navbar-padding: 10px;
 $num-nav-columns: 4;
 $nav-item-width: calc($navigation-width / 4);
-
-$background-color: aqua;

@@ -11,7 +11,7 @@ export default function TopNav() {
     const [searchClassName, setSearchClassName] = useState('searchbar');
 
     return (
-        <nav className='top'>
+        <nav id='top-nav' className='top'>
             <SiteName href='#' className='sitename' text='.mdwa'></SiteName>
             <Navigation className={navClassName}></Navigation>
             <Search

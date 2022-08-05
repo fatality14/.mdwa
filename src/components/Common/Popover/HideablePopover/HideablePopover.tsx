@@ -15,7 +15,7 @@ interface HideablePopoverProps {
     shiftY: number
     rtlRender?: boolean
     hidden?: boolean
-    id?: string
+    id: string
 }
 
 function HideablePopover(props: HideablePopoverProps) {

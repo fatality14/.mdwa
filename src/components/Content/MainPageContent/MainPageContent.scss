@@ -2,21 +2,18 @@
 
 main {
     width: 100%;
-    background-color: darken($background-color, 10);
     display: flex;
 }
 
-main .content{
+main .content {
     padding: 20px;
     padding-top: 0;
     flex-grow: 1;
-    background-color: darken($background-color, 15);
     height: 100%;
 }
 
-main nav.left {
+main .left {
     flex-basis: $sitename-width;
     flex-shrink: 0;
     height: 100%;
-    background-color: $background-color;
 }

@@ -29,7 +29,7 @@ function Search(props: SearchProps) {
         }
     }
 
-    const textIn = <input ref={inRef} className="searchbar-input" onBlur={onBlur} type='text'></input>;
+    const textIn = <input ref={inRef} className="input" onBlur={onBlur} type='text'></input>;
 
 
     useEffect(()=>{
@@ -41,14 +41,11 @@ function Search(props: SearchProps) {
     const [hidableComp, toggleHidden] = useHiddeable(textIn, true);
 
     return (
-        <div 
+        <div id='searchbar'
         onFocus={onFocus} tabIndex={0} 
         className={formClassName('searchbar', props.className)}
         >
-            <Icon className='searchbar-icon' imagePath={'/favicons/search.png'}></Icon>
-            {/* <HiddenHOC isHidden = {!isHidden}>
-                {textIn}
-            </HiddenHOC> */}
+            <Icon className='icon' imagePath={'/favicons/search.png'}></Icon>
             {hidableComp}
         </div>
     );

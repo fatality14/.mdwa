@@ -5,6 +5,12 @@ import TopNav from '../TopNav/TopNav';
 import Footer from '../Footer/Footer';
 
 function App() {
+    
+    useEffect(()=>{
+        let scw = window.innerWidth - document.body.clientWidth;
+        document.documentElement.style.setProperty('--scw', `${scw}px`);
+    },[])
+
     return (
         <div>
             <TopNav></TopNav>

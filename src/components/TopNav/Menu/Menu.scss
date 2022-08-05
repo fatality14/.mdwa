@@ -1,22 +1,16 @@
 @import "../../global.scss";
 
-.menu{
-    
+#menu {
+    .icon {
+        height: $navbar-height;
+        width: $menu-width;
+        padding: $navbar-padding;
+    }
 }
 
-.menu-icon{
-    height: $navbar-height;
-    width: $menu-width;
-    background-color: darken(red, $amount: 10);
-    padding: $navbar-padding;
-}
-
-// .menu-column{
-    
-// }
-
-.menu-column-item{
-    background-color: cadetblue;
-    width: 100px;
-    height: 50px;
+#menu-popover {
+    .column-item {
+        width: 100px;
+        height: 50px;
+    }
 }

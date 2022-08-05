@@ -10,12 +10,12 @@ interface LeftNavProps {
 }
 
 function LeftNav(props: LeftNavProps) {
-    const flClass = 'left-nav-fold-list';
-    const fllClass = 'left-nav-fold-list-item';
-    const fliClass = 'left-nav-fold-list-item';
+    const flClass = 'fold-list';
+    const fllClass = 'fold-list-item';
+    const fliClass = 'fold-list-item';
 
     return (
-        <nav className={formClassName('left', props.className)}>
+        <nav id='left-nav' className={formClassName('left', props.className)}>
             <FoldList className={flClass} labelClassName={fllClass} text={'Header'}>
                 <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
                 <FoldListItem className={fliClass} text='1234567890'></FoldListItem>

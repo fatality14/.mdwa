@@ -11,9 +11,9 @@ interface SiteNameProps {
 
 function SiteName(props: SiteNameProps) {
     return (
-        <a href={props.href} className={formClassName('sitename', props.className)}>
-            <Icon className='sitename-icon' imagePath='/favicons/site.png'></Icon>
-            <span className='sitename-text'>{props.text}</span>
+        <a id='site-name' href={props.href} className={formClassName('site-name', props.className)}>
+            <Icon className='icon' imagePath='/favicons/site.png'></Icon>
+            <span className='text'>{props.text}</span>
         </a>
     );
 }
