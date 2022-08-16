@@ -1,7 +1,7 @@
 import { stringify } from 'querystring';
 import * as React from 'react';
 import { formClassName } from '../../../utility/StyleUtils';
-import HideablePopover from '../../Common/Popover/HideablePopover/HideablePopover';
+import HideablePopover from '../../Common/HideablePopover/HideablePopover';
 import "./Navigation.scss"
 import NavItem from './NavItem/NavItem';
 

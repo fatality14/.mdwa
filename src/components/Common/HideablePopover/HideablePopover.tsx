@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { formClassName } from '../../../../utility/StyleUtils';
-import useHideable from '../../useHideable/useHiddeable';
-import useWrapref from '../../useWrapref/useWrapref';
-import Popover, { CoordsXY } from '../Popover';
+import { formClassName } from '../../../utility/StyleUtils';
+import useHideable from '../useHideable/useHiddeable';
+import useWrapref from '../useWrapref/useWrapref';
+import Popover, { CoordsXY } from './Popover/Popover';
 import "./HideablePopover.scss"
 
 interface HideablePopoverProps {
@@ -21,16 +21,21 @@ interface HideablePopoverProps {
 function HideablePopover(props: HideablePopoverProps) {
     const [coordsXY, setCoordsXY] = useState<CoordsXY>();
 
-    function showEvent(event: React.MouseEvent) {
-        const coords = wrapref.current!.getBoundingClientRect();
-        if (props.rtlRender) {
-            setCoordsXY({ x: coords.right + props.shiftX, y: coords.top + props.shiftY });
+    function calcCoords() {
+        if (wrapref.current) {
+            const coords = wrapref.current!.getBoundingClientRect();
+            if (props.rtlRender) {
+                setCoordsXY({ x: coords.right + props.shiftX, y: coords.top + props.shiftY });
+            }
+            else {
+                setCoordsXY({ x: coords.left + props.shiftX, y: coords.top + props.shiftY });
+            }
         }
-        else {
-            setCoordsXY({ x: coords.left + props.shiftX, y: coords.top + props.shiftY });
-        }
-        toggleHidden(false);
+    }
 
+    function showEvent(event: React.MouseEvent) {
+        calcCoords();
+        toggleHidden(false);
     }
     function hideEvent() {
         if (!props.noAutoHidable) {
@@ -45,14 +50,6 @@ function HideablePopover(props: HideablePopoverProps) {
     useEffect(() => {
         if (props.noAutoHidable) {
             setMouseEventProps({});
-
-            const coords = wrapref.current!.getBoundingClientRect();
-            if (props.rtlRender) {
-                setCoordsXY({ x: coords.right + props.shiftX, y: coords.top + props.shiftY });
-            }
-            else {
-                setCoordsXY({ x: coords.left + props.shiftX, y: coords.top + props.shiftY });
-            }
         }
         else {
             setMouseEventProps({
@@ -63,6 +60,7 @@ function HideablePopover(props: HideablePopoverProps) {
     }, [])
 
     useEffect(() => {
+        calcCoords();
         toggleHidden(props.hidden);
     }, [props.hidden])
 
@@ -71,7 +69,7 @@ function HideablePopover(props: HideablePopoverProps) {
 
     const [rendComp, wrapref] = useWrapref(
         <>
-            <span> {props.text} </span> 
+            <span> {props.text} </span>
             {popover}
         </>,
         { className: formClassName('popover-column', props.className), ...mouseEventProps })

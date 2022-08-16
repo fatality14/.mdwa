@@ -5,7 +5,10 @@ import './Footer.scss'
 function Footer() {
     return (
         <footer>
-            footer
+            <div>
+                <p>©opyright fatality14</p>
+                <p>2022, MIT</p>
+            </div>
         </footer>
     );
 }

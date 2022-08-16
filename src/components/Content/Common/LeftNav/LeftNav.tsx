@@ -17,7 +17,7 @@ function LeftNav(props: LeftNavProps) {
     return (
         <nav id='left-nav' className={formClassName('left', props.className)}>
             <FoldList className={flClass} labelClassName={fllClass} text={'Header'}>
-                <FoldListItem className={fliClass} text='Very long string sample'></FoldListItem>
+                <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
                 <FoldListItem className={fliClass} text='1234567890'></FoldListItem>
             </FoldList>
             <FoldList className={flClass} labelClassName={fllClass} text={'Header'}>

@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
-import OutsideClick from "../OutsideClick/OutsideClick";
-import Portal from "../Portal/Portal";
+import OutsideClick from "../../OutsideClick/OutsideClick";
+import Portal from "../../Portal/Portal";
 import "./Popover.scss"
 
 interface PopoverProps {

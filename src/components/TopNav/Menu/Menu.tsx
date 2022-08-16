@@ -2,7 +2,7 @@ import * as React from 'react';
 import { formClassName } from '../../../utility/StyleUtils';
 import Icon from '../../Common/Image/Icon';
 import OutsideClick from '../../Common/OutsideClick/OutsideClick';
-import HideablePopover from '../../Common/Popover/HideablePopover/HideablePopover';
+import HideablePopover from '../../Common/HideablePopover/HideablePopover';
 import "./Menu.scss"
 import MenuItem from './MenuItem/MenuItem';
 
@@ -21,7 +21,7 @@ function Menu(props: MenuProps) {
     function outsideClickHandler(e: MouseEvent) {
         let target = (e.target as Element);
         let flag = false;
-        while(target.parentElement){
+        while (target.parentElement) {
             target = target.parentElement;
             if (target.id == popoverId) {
                 setHidden(false);
@@ -30,10 +30,15 @@ function Menu(props: MenuProps) {
                 break;
             }
         }
-        if(!flag){
+        if (!flag) {
             setHidden(true);
         }
     }
+
+    function hideEvent() {
+        setHidden(true);
+    };
+    window.addEventListener('resize', hideEvent)
 
     return (
         <div id='menu' className={formClassName('menu', props.className)}>
