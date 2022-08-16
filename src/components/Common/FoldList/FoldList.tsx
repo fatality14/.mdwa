@@ -15,8 +15,8 @@ function FoldList(props: FoldListProps) {
     let [expand, setExpand] = useState(true);
 
     return (
-        <div onClick={()=>setExpand(!expand)} className={formClassName('fold-list', props.className)}>
-            <div className={formClassName('fold-list-item', props.labelClassName)}>{props.text}</div>
+        <div className={formClassName('fold-list', props.className)}>
+            <div onClick={()=>setExpand(!expand)} className={formClassName('fold-list-label', props.labelClassName)}>{props.text}</div>
             {expand && props.children}
         </div>
     );

@@ -5,14 +5,21 @@
 // }
 
 #left-nav {
-    .fold-list-item{
+    .fold-list {
+        $text-height: 18px;
+        $height: calc($text-height * 2);
+
+        font-size: $text-height;
+        height: $height;
+        line-height: $height;
         user-select: none;
-        height: 50px;
-    }
-    
-    .fold-list{
-        height: 50px;
-        user-select: none;
+
+        .fold-list-item {
+            text-indent: 5%;
+        }
+
+        .fold-list-label {}
+
         width: 100%;
         height: auto;
     }

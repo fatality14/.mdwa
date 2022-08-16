@@ -12,15 +12,14 @@ interface FoldListItemProps {
 
 function FoldListItem(props: FoldListItemProps) {
     return (
-        <div
+        <a
+            href={props.link}
             onClick={props.noClickBubbling ? (e: React.MouseEvent) => { e.stopPropagation() } : () => { }}
             key={props.text + props.link}
             className={formClassName('fold-list-item', props.className)}
         >
-            <a href={props.link}>
-                {props.text}
-            </a>
-        </div>
+            {props.text}
+        </a>
     );
 }
 

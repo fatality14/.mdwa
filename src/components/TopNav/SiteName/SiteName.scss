@@ -10,6 +10,7 @@
     }
     > .icon, .text{
         height: $navbar-height;
+        text-align: center;
     }
     > .icon{
         flex: 0 0 $navbar-height;
